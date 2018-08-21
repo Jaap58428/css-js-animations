@@ -10,6 +10,7 @@ body {
   justify-content: center;
   overflow: hidden;
   flex-direction: column;
+  background-color: black;
 }
 
 @keyframes background-colorshift {
@@ -27,7 +28,8 @@ body {
   background-image: linear-gradient(-70deg, red , yellow);
   border-radius: 50%;
   will-change: background-image;
-  transition: transform 0.3s;
+  transition: transform 0.3s linear, left 1s , top 1s ;
+  cursor: pointer;
 }
 
 .circle:hover {
