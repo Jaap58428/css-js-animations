@@ -41,7 +41,7 @@ let hslToString = (colorValue) => {
 let increaseColor = (oldColor) => {
   // hsl colors rotate over the color wheel 0-360
   if (oldColor < 355) {
-    return oldColor + 2;
+    return oldColor + 5;
   } else {
     return 0;
   }
@@ -52,13 +52,18 @@ let getRandomBallElement = () => {
   newDiv.className = 'circle'
   newDiv.id = 'circle'
 
-  newDiv.style.top = (getRandomInt(60) + 20) + 'vh';
-  newDiv.style.left = (getRandomInt(60) + 20) + 'vw';
-
   let size = (getRandomInt(7) + 3) + 'rem'
 
   newDiv.style.height = size;
   newDiv.style.width = size;
+
+  // make sure the location isnt further then the size of the object allows
+  // done via css calculation of vh/vw - object size
+  let baseTop = getRandomInt(100) + 'vh';
+  let baseLeft = getRandomInt(100) + 'vw';
+
+  newDiv.style.top = 'calc( ' + baseTop + ' - ' + size  + ' )';
+  newDiv.style.left = 'calc( ' + baseLeft + ' - ' + size  + ' )';
 
   return newDiv;
 }
